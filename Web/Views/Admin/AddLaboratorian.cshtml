@@ -1,0 +1,369 @@
+﻿@model Core.Entities.Laboratorian
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Laboratorian" : "Edit Laboratorian";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">@ViewBag.Title</h3>
+                    <form asp-action="@(Model.Id == 0 ? "AddLaboratorian" : "EditLaboratorian")" method="post">
+                        @if (Model.Id != 0)
+                        {
+                            <input type="hidden" asp-for="Id" />
+                        }
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" asp-for="LaboratorianName" placeholder="Laboratorian Name" required>
+                                    <label asp-for="LaboratorianName">Laboratorian Name</label>
+                                </div>
+                            </div>
+                        </div>               
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control" asp-for="Contact" placeholder="Contact" required>
+                                    <label asp-for="Contact">Contact</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" asp-for="Gender" placeholder="Gender" required>
+                                        <option value="" selected>Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <label asp-for="Gender">Gender</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" asp-for="Department" placeholder="Department" required>
+                                    <label asp-for="Department">Department</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" asp-for="DOB" placeholder="Date of Birth" required>
+                                    <label asp-for="DOB">Date of Birth</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" asp-for="Email" placeholder="Email" required>
+                                    <label asp-for="Email">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" asp-for="Password" placeholder="Password" required>
+                                    <label asp-for="Password">Password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-block">Save</button>
+                            <a href="/Admin/ViewLaboratorian" class="btn btn-secondary btn-block">Go to Laboratorians List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* @model Medi_Connect.Models.Laboratorian
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Laboratorian" : "Edit Laboratorian";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">@ViewBag.Title</h3>
+                <form asp-action="@(Model.Id == 0 ? "AddLaboratorian" : "EditLaboratorian")" method="post">
+                    @if (Model.Id != 0)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+                    <div class="row g-3">
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="LaboratorianName" class="form-label"></label>
+                            <input type="text" class="form-control-sm" asp-for="LaboratorianName" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Contact" class="form-label"></label>
+                            <input type="tel" class="form-control-sm" asp-for="Contact" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Gender" class="form-label"></label>
+                            <select class="form-control" asp-for="Gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Department" class="form-label"></label>
+                            <input type="text" class="form-control-sm" asp-for="Department" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input type="text" class="form-control-sm" asp-for="Address" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="DOB" class="form-label"></label>
+                            <input type="date" class="form-control-sm" asp-for="DOB" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input type="email" class="form-control-sm" asp-for="Email" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input type="password" class="form-control-sm" asp-for="Password" required>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="/Admin/ViewLaboratorian" class="btn btn-secondary">Go to Laboratorians List</a>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+@* @model Medi_Connect.Models.Laboratorian
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Laboratorian" : "Edit Laboratorian";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container card p-4 shadow-sm">
+                <h3 class="text-center mb-4">@ViewBag.Title</h3>
+                <form asp-action="@(Model.Id == 0 ? "AddLaboratorian" : "EditLaboratorian")" method="post">
+                    @if (Model.Id != 0)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="LaboratorianName" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="LaboratorianName" required>
+                            <small><span asp-validation-for="LaboratorianName" class="text-danger"></span></small>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Contact" class="form-label"></label>
+                            <input type="tel" class="form-control" asp-for="Contact" required>
+                            <small><span asp-validation-for="Contact" class="text-danger"></span></small>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Gender" class="form-label"></label>
+                            <select class="form-control" asp-for="Gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <small><span asp-validation-for="Gender" class="text-danger"></span></small>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="Department" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="Department" required>
+                            <small><span asp-validation-for="Department" class="text-danger"></span></small>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="Address" required>
+                            <small><span asp-validation-for="Address" class="text-danger"></span></small>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="DOB" class="form-label"></label>
+                            <input type="date" class="form-control" asp-for="DOB" required>
+                            <small><span asp-validation-for="DOB" class="text-danger"></span></small>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input type="email" class="form-control" asp-for="Email" required>
+                            <small><span asp-validation-for="Email" class="text-danger"></span></small>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input type="password" class="form-control" asp-for="Password" required>
+                            <small><span asp-validation-for="Password" class="text-danger"></span></small>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br><br>
+                    <a href="/Admin/ViewLaboratorian" class="btn btn-secondary">Go to Laboratorians List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+@* @model Medi_Connect.Models.Laboratorian
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Laboratorian" : "Edit Laboratorian";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">@ViewBag.Title</h3>
+                <form asp-action="@(Model.Id == 0 ? "AddLaboratorian" : "EditLaboratorian")" method="post">
+                    @if (Model.Id != 0)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="LaboratorianName" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="LaboratorianName" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Contact" class="form-label"></label>
+                            <input type="tel" class="form-control" asp-for="Contact" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Gender" class="form-label"></label>
+                            <select class="form-control" asp-for="Gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="Department" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="Department" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="Address" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="DOB" class="form-label"></label>
+                            <input type="date" class="form-control" asp-for="DOB" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input type="email" class="form-control" asp-for="Email" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input type="password" class="form-control" asp-for="Password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br><br>
+                    <a href="/Admin/ViewLaboratorian" class="btn btn-secondary">Go to Laboratorians List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+
+
+
+
+@* @{
+    Layout = "_AdminLayout"; 
+    ViewBag.Title = "Admin Dashboard - Laboratorian"; 
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">Add Laboratorian</h3>
+                <form action="#" method="POST" class="doctor-form">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="doctor-name" class="form-label">Laboratorian Name:</label>
+                            <input type="text" class="form-control" id="doctor-name" name="doctor-name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="phone-number" class="form-label">Phone Number:</label>
+                            <input type="tel" class="form-control" id="phone-number" name="phone-number" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="gender" class="form-label">Gender:</label>
+                            <select class="form-control" id="gender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="specialization" class="form-label">Department:</label>
+                            <input type="text" class="form-control" id="specialization" name="specialization" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="address" class="form-label">Address:</label>
+                            <input type="text" class="form-control" id="address" name="address" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dob" class="form-label">Date of Birth:</label>
+                            <input type="date" class="form-control" id="dob" name="dob" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br>
+                    <br>
+                    <a href="/Admin/ViewLaboratorian" class="btn btn-secondary">Go to Laboratorians List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+ *@

@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "Admin Dashboard"; 
+}
+
+<div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/adminpage.jpg" class="img-fluid" alt="">
+            <div class="carousel-caption">
+                <h2>Welcome, Admin!</h2>
+                <p>You can perform CRUD operations on doctor and laboratorian records.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <section class="welcome-banner">
+    <div class="container text-center text-white">
+        <div class="row">
+            <div class="col-md-12 position-relative">
+                <img src="~/images/adminWelcome.PNG" class="img-fluid" alt="Welcome Image">
+                <div class="overlay-text">
+                    <h2>Welcome, Admin!</h2>
+                    <p>You can perform CRUD operations on doctor and laboratorian records.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> *@
+
+
+
+
+
+
+@* <section class="welcome-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="~/images/adminWelcome.PNG" alt="Welcome Image"> 
+                <h2>Welcome, Admin!</h2>
+                <p>You can perform CRUD operations on doctor and laboratorian records.</p>
+            </div>
+        </div>
+    </div>
+</section>  *@
+
+
+
+
+@* <section class="welcome-banner">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-12">
+                <img src="~/images/adminWelcome.PNG" class="d-block w-100" alt="Welcome Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> *@
+
+
+
+
+
+
+@* 
+<script>
+
+
+    // Establish connection with the SignalR Hub
+    var connection = new signalR.HubConnectionBuilder().withUrl("/ChatHub").build();
+
+    // Listen for messages from the server
+    connection.on("ReceiveMessage", function (patientName) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'New Patient!',
+            text: patientName + 'new patient added!',
+            confirmButtonText: 'Okay',
+            timer: 10000
+        });
+    });
+
+    // Start the SignalR connection
+    connection.start().catch(function (err) {
+        return console.error(err.toString());
+    });
+    //SignalR Script End
+</script>
+
+ *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

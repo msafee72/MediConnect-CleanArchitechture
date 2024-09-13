@@ -1,0 +1,123 @@
+﻿@model Core.Entities.LabTest
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Lab Test" : "Edit Lab Test";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">@ViewBag.Title</h3>
+                    <form asp-action="@(Model.Id == 0 ? "AddLabTest" : "EditLabTest")" method="post">
+                        @if (Model.Id != 0)
+                        {
+                            <input type="hidden" asp-for="Id" />
+                        }
+                        <div class="mb-3">
+                            <label asp-for="TestName" class="form-label">Test Name</label>
+                            <input type="text" class="form-control" asp-for="TestName">
+                            <span asp-validation-for="TestName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Description</label>
+                            <textarea class="form-control" asp-for="Description" rows="2"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Cost" class="form-label">Cost</label>
+                            <input type="number" id="cost" class="form-control" asp-for="Cost">
+                            <span asp-validation-for="Cost" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-block" onclick="cost()">Save</button>
+                            <a href="/Laboratorian/ViewLabTest" class="btn btn-secondary btn-block">Go to Lab Tests List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div
+
+
+@* @model Medi_Connect.Models.LabTest
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Lab Test" : "Edit Lab Test";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">@ViewBag.Title</h3>
+                <form asp-action="@(Model.Id == 0 ? "AddLabTest" : "EditLabTest")" method="post">
+                    @if (Model.Id != 0)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+                    <div class="mb-3">
+                        <label asp-for="TestName" class="form-label"></label>
+                        <input type="text" class="form-control" asp-for="TestName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea class="form-control" asp-for="Description" rows="1" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Cost" class="form-label"></label>
+                        <input type="number" class="form-control" asp-for="Cost" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br><br>
+                    <a href="/Laboratorian/ViewLabTest" class="btn btn-secondary">Go to Lab Tests List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+@* @{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Test";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">Add Lab Test</h3>
+                <form action="#" method="POST" class="labtest-form">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="test-name" class="form-label">Test Name:</label>
+                            <input type="text" class="form-control" id="test-name" name="test-name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="description" class="form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description" rows="1" required></textarea>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="cost" class="form-label">Cost:</label>
+                            <input type="number" class="form-control" id="cost" name="cost" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br>
+                    <br>
+                    <a href="/Laboratorian/ViewLabTest" class="btn btn-secondary">Go to Lab Tests List</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+

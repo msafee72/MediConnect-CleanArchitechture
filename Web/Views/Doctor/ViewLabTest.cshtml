@@ -1,0 +1,220 @@
+﻿@model List<Core.Entities.LabResult>
+
+@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard - Lab Test Results";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+
+            <div class="text-center mb-3">
+                @using (Html.BeginForm("ViewLabTest", "Doctor", FormMethod.Get, new { @class = "d-flex justify-content-center" }))
+                {
+                    <div class="input-group">
+                        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search" })
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                }
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var test in Model)
+                        {
+                            <tr>
+                                <td>@test.PatientId</td>
+                                <td>@test.TestName</td>
+                                <td>
+                                    <a href="@Url.Content("~/" + test.ResultFilePath)" target="_blank">View Result</a>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="EditLabResult" asp-route-id="@test.Id" class="btn btn-sm btn-primary">Edit</a>
+                                        <a asp-action="DeleteLabResult" asp-route-id="@test.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* @model List<Medi_Connect.Models.LabResult>
+
+@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard - Lab Test Results";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+
+            <div class="text-center mb-3">
+                @using (Html.BeginForm("ViewLabTest", "Doctor", FormMethod.Get, new { @class = "d-inline-flex" }))
+                {
+                    <div class="input-group">
+                        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search by Test Name" })
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                }
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var test in Model)
+                        {
+                            <tr>
+                                <td>@test.PatientId</td>
+                                <td>@test.TestName</td>
+                                <td>
+                                    <a href="@Url.Content("~/" + test.ResultFilePath)" target="_blank">View Result</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+
+
+@* @model List<Medi_Connect.Models.LabResult>
+
+@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard - Lab Test Results";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var test in Model)
+                        {
+                            <tr>
+                                <td>@test.PatientId</td>
+                                <td>@test.TestName</td>
+                                <td>
+                                    <a href="@Url.Content("~/" + test.ResultFilePath)" target="_blank">View Result</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+
+@* @{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard - Lab";
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TestID_01</td>
+                            <td>PatID_01</td>
+                            <td>Blood Test</td>
+                            <td>Normal</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TestID_02</td>
+                            <td>PatID_02</td>
+                            <td>Urine Test</td>
+                            <td>Abnormal</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TestID_03</td>
+                            <td>PatID_03</td>
+                            <td>X-ray</td>
+                            <td>Normal</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TestID_04</td>
+                            <td>PatID_04</td>
+                            <td>ECG</td>
+                            <td>Abnormal</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ *@

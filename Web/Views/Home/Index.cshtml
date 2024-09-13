@@ -1,0 +1,263 @@
+﻿@{
+    Layout = null ; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medi-Connect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/medic-connect.css" rel="stylesheet">    
+</head>
+<body id="top">
+    <main>
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand mx-auto d-lg-none" href="/Home/Index">
+                    Medi-Connect
+                    <strong class="d-block">Health Specialists</strong>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+
+                        <a class="navbar-brand d-none d-lg-block" href="/Home/Index" id="medicon">
+                            Medi-Connect
+                            <strong class="d-block">Health Specialists</strong>
+                        </a>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#booking">Join Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <partial name="_LoginPartial" />
+                   
+                    @*  <a class="btn btn-primary" href="/Account/Login" role="button">Login</a> *@
+
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="hero" id="home">
+            <div class="container mt-5">
+@*                 @if (!string.IsNullOrEmpty(Model))
+                {
+                    <div class="alert alert-info text-center" role="alert">
+                        @Model
+                    </div>
+                } *@
+
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="~/images/slider/doctor-s-hand-holding-stethoscope-closeup.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/images/slider/portrait-successful-mid-adult-doctor-with-crossed-arms.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/images/slider/young-asian-female-dentist-white-coat-posing-clinic-equipment.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="heroText d-flex flex-column justify-content-center">
+                            <h1 class="mt-auto mb-2">
+                                Better
+                                <div class="animated-info">
+                                    <span class="animated-item">health</span>
+                                    <span class="animated-item">days</span>
+                                    <span class="animated-item">lives</span>
+                                </div>
+                            </h1>
+                            <p class="mb-4">To pioneer transformative healthcare solutions, fostering seamless connectivity between patients and providers, thereby enhancing well-being and enriching lives globally</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+@*         <h5>@Model</h5>
+
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">    
+                                <div class="carousel-item active">
+                                    <img src="~/images/slider/doctor-s-hand-holding-stethoscope-closeup.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/images/slider/portrait-successful-mid-adult-doctor-with-crossed-arms.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/images/slider/young-asian-female-dentist-white-coat-posing-clinic-equipment.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="heroText d-flex flex-column justify-content-center">
+                            <h1 class="mt-auto mb-2">
+                                Better
+                                <div class="animated-info">
+                                    <span class="animated-item">health</span>
+                                    <span class="animated-item">days</span>
+                                    <span class="animated-item">lives</span>
+                                </div>
+                            </h1>
+                            <p class="mb-4">To pioneer transformative healthcare solutions, fostering seamless connectivity between patients and providers, thereby enhancing well-being and enriching lives globally</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> *@
+
+'@*         <section class="section-padding" id="about" href="#home">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <h2 class="mb-lg-3 mb-3">Revolutionize</h2>
+
+                        <p>Welcome to Medi-Connect, where healthcare meets innovation! Experience the power of seamless connectivity for healthcare professionals. From managing patient records to prescribing medications and viewing lab test results, we've got you covered. Join us on our journey to transform healthcare delivery and improve patient outcomes.</p>
+                        <br>
+                        <p>Our mission is to revolutionize healthcare delivery by providing intuitive and efficient digital solutions that streamline administrative tasks, facilitate informed medical decisions, and ultimately improve patient well-being.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-5 col-12 mx-auto">
+                        <div class="featured-circle bg-white shadow-lg d-flex justify-content-center align-items-center">
+                            <p class="featured-text"><span class="featured-number">12</span> Years<br> of Services in Healthcare</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> *@
+
+        <partial name="_about" />
+
+
+        @* <!-- JOIN -->
+        <section class="section-padding" id="booking" href="#home">
+                <div class="container">
+                    <div class="row">
+                    
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <div class="booking-form">
+                                
+                                <h2 class="text-center mb-lg-3 mb-2">Join us as a Doctor / Laboratorian</h2>
+                            
+                                <form role="form" action="#booking" method="post">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-12">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Full name" required>
+                                        </div>
+
+                                        <div class="col-lg-6 col-12">
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required>
+                                        </div>
+
+                                        <div class="col-lg-6 col-12">
+                                            <input type="date" name="date" id="date" value="" class="form-control">
+                                            
+                                        </div>
+
+                                        <div class="col-12">
+                                            <textarea class="form-control" rows="5" id="message" name="message" placeholder="Tell us about your interested role and qualification"></textarea>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4 col-6 mx-auto">
+                                            <button type="submit" class="form-control" id="submit-button">Apply</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section> *@
+
+        <partial name="_joinUs" />
+
+
+
+    </main>
+
+@*     <footer class="site-footer section-padding" id="contact" href="#contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 me-auto col-12">
+                    <h5 class="mb-lg-4 mb-3">Opening Hours</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex">
+                            Sunday : Closed
+                        </li>
+                        <li class="list-group-item d-flex">
+                            Monday, Tuesday - Firday
+                            <span>8:00 AM - 3:30 PM</span>
+                        </li>
+                        <li class="list-group-item d-flex">
+                            Saturday
+                            <span>10:30 AM - 5:30 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-12 my-4 my-lg-0">
+                    <h5 class="mb-lg-4 mb-3">Our Clinic</h5>
+                    <p><a href="mailto:hello@company.co">medConnect@gmail.com</a><p>
+                    <p>123 Garden Town, Lahore</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 ms-auto">
+                    <h5 class="mb-lg-4 mb-2">Socials</h5>
+                    <ul class="social-icon">
+                        <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+                        <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+                        <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                        <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                    </ul>
+                    <div>
+                        <p class="copyright-text">Copyright © Medic Connect 2024 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> *@
+
+    <partial name="_contact" />
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+@* 
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/scrollspy.min.js"></script>
+    <script src="js/custom.js"></script> *@
+</body>
+</html>

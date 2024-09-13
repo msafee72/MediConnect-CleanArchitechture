@@ -1,0 +1,167 @@
+﻿@model Core.Entities.Prescription
+
+@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Prescription" : "Edit Prescription";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <h5 class="card-header bg-dark text-white">@ViewBag.Title</h5>
+                <div class="card-body">
+                    <form asp-action="@(Model.Id == 0 ? "AddPrescription" : "EditPrescription")" method="post" class="row g-3">
+                        @if (Model.Id != 0)
+                        {
+                            <input type="hidden" asp-for="Id" />
+                        }
+
+                        <div class="col-md-6">
+                            <label asp-for="PatientId" class="form-label">Patient ID:</label>
+                            <input asp-for="PatientId" class="form-control" required>
+                            <span asp-validation-for="PatientId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="PatientName" class="form-label">Patient Name:</label>
+                            <input asp-for="PatientName" class="form-control" required>
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Medicines" class="form-label">Medicines:</label>
+                            <textarea asp-for="Medicines" class="form-control" rows="1" required></textarea>
+                            <span asp-validation-for="Medicines" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="LabTests" class="form-label">Lab Tests:</label>
+                            <textarea asp-for="LabTests" class="form-control" rows="1" required></textarea>
+                            <span asp-validation-for="LabTests" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Cost" class="form-label">Cost:</label>
+                            <input asp-for="Cost" type="number" step="0.01" class="form-control" required>
+                            <span asp-validation-for="Cost" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-primary me-2 w-100">Save</button>
+                            <a href="/Doctor/ViewPrescription" class="btn btn-secondary w-100 mt-2">Go to Prescription List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* @model Prescription
+
+@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = Model.Id == 0 ? "Add Prescription" : "Edit Prescription";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">@ViewBag.Title</h3>
+                <form asp-action="@(Model.Id == 0 ? "AddPrescription" : "EditPrescription")" method="post">
+                    @if (Model.Id != 0)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="PatientId" class="form-label">Patient ID:</label>
+                            <input asp-for="PatientId" class="form-control" required>
+                            <span asp-validation-for="PatientId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="PatientName" class="form-label">Patient Name:</label>
+                            <input asp-for="PatientName" class="form-control" required>
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="Medicines" class="form-label">Medicines:</label>
+                            <textarea asp-for="Medicines" class="form-control" rows="1" required></textarea>
+                            <span asp-validation-for="Medicines" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="LabTests" class="form-label">Lab Tests:</label>
+                            <textarea asp-for="LabTests" class="form-control" rows="1" required></textarea>
+                            <span asp-validation-for="LabTests" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="Cost" class="form-label">Cost:</label>
+                            <input asp-for="Cost" type="number" step="0.01" class="form-control" required>
+                            <span asp-validation-for="Cost" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br>
+                    <br>
+
+                     <a href="/Doctor/ViewPrescription" class="btn btn-secondary">Go to Prescription List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+@* @{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard - Prescription";
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">Add Prescription</h3>
+                <form action="#" method="POST" class="doctor-form">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="patient-id" class="form-label">Patient ID:</label>
+                            <input type="text" class="form-control" id="patient-id" name="patient-id" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="patient-name" class="form-label">Patient Name:</label>
+                            <input type="text" class="form-control" id="patient-name" name="patient-name" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="medicines" class="form-label">Medicines:</label>
+                            <textarea class="form-control" id="medicines" name="medicines" rows="1" required></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lab-tests" class="form-label">Lab Tests:</label>
+                            <textarea class="form-control" id="lab-tests" name="lab-tests" rows="1" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="cost" class="form-label">Cost:</label>
+                            <input type="text" class="form-control" id="cost" name="cost" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <br>
+                    <br>
+                    <a href="/Doctor/ViewPrescription" class="btn btn-secondary">Go to Prescription List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@

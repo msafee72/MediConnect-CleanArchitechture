@@ -1,0 +1,65 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\University\\6th Semester\\SCD\\Medi-Connect (Clean-Architechture)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4D9752-7430-4F51-9CBA-13743B6BDE91}|webapi\\webapi.csproj|d:\\university\\6th semester\\scd\\medi-connect (clean-architechture)\\webapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4D9752-7430-4F51-9CBA-13743B6BDE91}|webapi\\webapi.csproj|solutionrelative:webapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{857C68DD-E55E-4522-B737-E6ADEB4EA71E}|Web\\Web.csproj|d:\\university\\6th semester\\scd\\medi-connect (clean-architechture)\\web\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{857C68DD-E55E-4522-B737-E6ADEB4EA71E}|Web\\Web.csproj|solutionrelative:web\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 279,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\University\\6th Semester\\SCD\\Medi-Connect (Clean-Architechture)\\webapi\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "webapi\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\University\\6th Semester\\SCD\\Medi-Connect (Clean-Architechture)\\webapi\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "webapi\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T01:44:52.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\University\\6th Semester\\SCD\\Medi-Connect (Clean-Architechture)\\Web\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Web\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\University\\6th Semester\\SCD\\Medi-Connect (Clean-Architechture)\\Web\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Web\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAoAAACAMjMzMzMawBoAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T05:22:42.239Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

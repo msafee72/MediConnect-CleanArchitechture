@@ -1,0 +1,119 @@
+﻿@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard"; 
+}
+
+
+@* <section class="welcome-banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="~/images/gallery/female-doctor-with-presenting-hand-gesture.jpg" alt="Welcome Image" class="welcome-image">
+            </div>
+            <div class="col-md-6">
+                <h2>Welcome, Doctor!</h2>
+                <p>You can access patient history, prescriptions, and lab test results.</p>
+            </div>
+        </div>
+    </div>
+</section> *@
+
+@* <body id="top">
+    <main>
+        <section class="hero" id="home">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="~/images/gallery/female-doctor-with-presenting-hand-gesture.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="heroText d-flex flex-column justify-content-center">
+                            <h1 class="mt-auto mb-2">
+                                <h2>Welcome, Doctor!</h2>
+                                <p>You can access patient history, prescriptions, and lab test results.</p>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+ *@
+
+
+
+<body id="top">
+    <main>
+        <section class="hero" id="home">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-12 position-relative">
+                        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="~/images/gallery/female-doctor-with-presenting-hand-gesture.jpg" class="img-fluid" alt="">
+                                    <div class="welcome-box position-absolute top-0 start-0 p-3">
+                                        <h2>Welcome, Doctor!</h2>
+                                        <p>You can access patient history, prescriptions, and lab test results.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.7/signalr.min.js"></script>
+
+
+@* 
+<script>
+  
+
+    // Establish connection with the SignalR Hub
+    var connection = new signalR.HubConnectionBuilder().withUrl("/ChatHub").build();
+
+    // Listen for messages from the server
+    connection.on("ReceiveMessage", function (doctorName) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Doctor!',
+            text: doctorName + ' new doctor uploaded!',
+            confirmButtonText: 'Okay',
+            timer: 7000
+        });
+    });
+
+    // Start the SignalR connection
+    connection.start().catch(function (err) {
+        return console.error(err.toString());
+    });
+    //SignalR Script End
+</script> *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

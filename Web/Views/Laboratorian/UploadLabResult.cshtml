@@ -1,0 +1,123 @@
+﻿@using Core.Entities
+@model LabResult
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Upload Lab Test Result</h3>
+                    <form asp-action="UploadLabResult" asp-controller="Laboratorian" method="post" class="result-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label asp-for="PatientId" class="form-label">Patient ID</label>
+                            <input asp-for="PatientId" class="form-control" required>
+                            <span asp-validation-for="PatientId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="TestName" class="form-label">Test Name</label>
+                            <input asp-for="TestName" class="form-control" required>
+                            <span asp-validation-for="TestName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="File" class="form-label">Result File</label>
+                            <input asp-for="File" type="file" class="form-control" required>
+                            <span asp-validation-for="File" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                            <a asp-action="ViewLabResult" asp-controller="Laboratorian" class="btn btn-secondary">Go to Lab Results List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* @using Medi_Connect.Models
+@model LabResult
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">Upload Lab Test Result</h3>
+                <form asp-action="UploadLabResult" asp-controller="Laboratorian" method="post" class="result-form" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label asp-for="PatientId" class="form-label"></label>
+                        <input asp-for="PatientId" class="form-control" required>
+                        <span asp-validation-for="PatientId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="TestName" class="form-label"></label>
+                        <input asp-for="TestName" class="form-control" required>
+                        <span asp-validation-for="TestName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="File" class="form-label"></label>
+                        <input asp-for="File" type="file" class="form-control" required>
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <br><br>
+                    <a asp-action="ViewLabResult" asp-controller="Laboratorian" class="btn btn-secondary">Go to Lab Results List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+@* @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@
+
+@* @using Medi_Connect.Models
+@model LabResult
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">Upload Lab Test Result</h3>
+                <form action="/Laboratorian/UploadLabResult" method="post" class="result-form" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="patient-id" class="form-label">Patient ID:</label>
+                        <input type="text" class="form-control" id="patient-id" name="PatientId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="test-name" class="form-label">Test Name:</label>
+                        <input type="text" class="form-control" id="test-name" name="TestName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="result-file" class="form-label">Result File:</label>
+                        <input type="file" class="form-control" id="result-file" name="File" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <br>
+                    <br>
+                    <a href="/Laboratorian/ViewLabResult" class="btn btn-secondary">Go to Lab Results List</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div> *@

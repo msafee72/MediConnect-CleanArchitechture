@@ -1,0 +1,230 @@
+﻿@model IEnumerable<Core.Entities.Laboratorian>
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "Laboratorian List";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="card-title text-center mb-0">Laboratorian List</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Laboratorian ID</th>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Gender</th>
+                                    <th>Department</th>
+                                    <th>DOB</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var laboratorian in Model)
+                                {
+                                    <tr>
+                                        <td>@laboratorian.Id</td>
+                                        <td>@laboratorian.LaboratorianName</td>
+                                        <td>@laboratorian.Contact</td>
+                                        <td>@laboratorian.Gender</td>
+                                        <td>@laboratorian.Department</td>
+                                        <td>@laboratorian.DOB.ToString("MM/dd/yyyy")</td>
+                                        <td>@laboratorian.Email</td>
+                                        <td>@laboratorian.Password</td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a asp-action="EditLaboratorian" asp-route-id="@laboratorian.Id" class="btn btn-sm btn-primary">Edit</a>
+                                                <a asp-action="DeleteLaboratorian" asp-route-id="@laboratorian.Id" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* @model IEnumerable<Laboratorian>
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "Laboratorian List";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Laboratorian List</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Laboratorian ID</th>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Gender</th>
+                                    <th>Department</th>
+                                    <th>Address</th>
+                                    <th>DOB</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var laboratorian in Model)
+                                {
+                                    <tr>
+                                        <td>@laboratorian.Id</td>
+                                        <td>@laboratorian.LaboratorianName</td>
+                                        <td>@laboratorian.Contact</td>
+                                        <td>@laboratorian.Gender</td>
+                                        <td>@laboratorian.Department</td>
+                                        <td>@laboratorian.Address</td>
+                                        <td>@laboratorian.DOB.ToString("MM/dd/yyyy")</td>
+                                        <td>@laboratorian.Email</td>
+                                        <td>@laboratorian.Password</td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a asp-action="EditLaboratorian" asp-route-id="@laboratorian.Id" class="btn btn-sm btn-primary me-2">Edit</a>
+                                                <a asp-action="DeleteLaboratorian" asp-route-id="@laboratorian.Id" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+
+@* @model IEnumerable<Laboratorian>
+
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "Laboratorian List";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Laboratorian List</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Laboratorian ID</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Gender</th>
+                            <th>Department</th>
+                            <th>Address</th>
+                            <th>DOB</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var laboratorian in Model)
+                        {
+                            <tr>
+                                <td>@laboratorian.Id</td>
+                                <td>@laboratorian.LaboratorianName</td>
+                                <td>@laboratorian.Contact</td>
+                                <td>@laboratorian.Gender</td>
+                                <td>@laboratorian.Department</td>
+                                <td>@laboratorian.Address</td>
+                                <td>@laboratorian.DOB.ToString("MM/dd/yyyy")</td>
+                                <td>@laboratorian.Email</td>
+                                <td>@laboratorian.Password</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a asp-action="EditLaboratorian" asp-route-id="@laboratorian.Id" class="btn btn-sm btn-primary me-2">Edit</a>
+                                        <a asp-action="DeleteLaboratorian" asp-route-id="@laboratorian.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+
+
+@* @{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "Admin Dashboard - Laboratorian";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Laboratorian List</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Laboratorian ID</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Gender</th>
+                            <th>Department</th>
+                            <th>Address</th>
+                            <th>DOB</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LabID_01</td>
+                            <td>Mr. Ali</td>
+                            <td>123-456-7890</td>
+                            <td>Male</td>
+                            <td>Hematology</td>
+                            <td>987 Lahore</td>
+                            <td>01/10/1999</td>
+                            <td>qwe.ert@gmail.com</td>
+                            <td>*****</td>
+                            <td>
+                                <div class="d-flex">
+                                    <button class="btn btn-sm btn-primary me-2">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+ *@

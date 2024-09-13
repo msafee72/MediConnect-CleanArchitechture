@@ -1,0 +1,525 @@
+﻿@model List<Core.Entities.LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="mb-3">
+                    @using (Html.BeginForm("ViewLabResult", "Laboratorian", FormMethod.Get, new { @id = "searchForm", @class = "d-flex" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("search", null, new { @id= "searchText", @class = "form-control", placeholder = "Search" })
+                            <button type="button" id="search" class="btn btn-primary">Search</button>
+                        </div>
+                    }
+                </div>
+                <div id="results">
+                    <partial name="_LabResultsListPartial" model="Model" />
+                    @* @Html.Partial("_LabResultsListPartial", Model) *@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- jQuery and AJAX script for handling form submission -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#search").click(function () {   //when you click on the button this funtion executes
+            console.log('I AM IN')
+            var data = $('#searchText').val();
+            console.log(data)
+            $.get('/Laboratorian/Search', { x: data }, function (result) {
+                $('#results').html(result);
+                console.log("Result");
+            });
+        });
+    });
+</script>
+
+
+
+@* <script>
+    $(document).ready(function () {
+        $("#searchForm").submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = $(this);
+            var url = form.attr('action');
+            var formData = new FormData(this); // Create a FormData object with the form data
+
+            $.ajax({
+                url: url,
+                data: formData, // Send it as FormData
+                processData: false, // Tell jQuery not to process the data
+                contentType: false, // Tell jQuery not to set contentType
+                type: 'GET', // The method is GET for search
+                success: function (data) {
+                    // Update the results div with the new content
+                    $('#results').html($(data).find('#results').html());
+                },
+                error: function () {
+                    alert("An error occurred while processing your request. Please try again.");
+                }
+            });
+        });
+    });
+</script> *@
+
+
+
+
+@* @model List<Medi_Connect.Models.LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="mb-3">
+                    @using (Html.BeginForm("ViewLabResult", "Laboratorian", FormMethod.Get, new { @class = "d-flex", id = "searchForm" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search" })
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    }
+                </div>
+                <div id="results">
+                    <table class="table table-striped table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Test ID</th>
+                                <th>Patient ID</th>
+                                <th>Test Name</th>
+                                <th>Result</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var result in Model)
+                            {
+                                <tr>
+                                    <td>@result.Id</td>
+                                    <td>@result.PatientId</td>
+                                    <td>@result.TestName</td>
+                                    <td>
+                                        <a href="@Url.Content("~/" + result.ResultFilePath)" target="_blank">View Result</a>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a asp-action="EditLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-primary">Edit</a>
+                                            <a asp-action="DeleteLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-danger">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery and AJAX script for handling form submission -->
+<script src="~/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchForm").submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = $(this);
+            var url = form.attr('action');
+            var formData = form.serialize();
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: formData,
+                success: function (data) {
+                    // Update the results div with the new content
+                    $('#results').html($(data).find('#results').html());
+                },
+                error: function () {
+                    alert("An error occurred while processing your request. Please try again.");
+                }
+            });
+        });
+    });
+</script> *@
+
+
+
+@* @model List<Medi_Connect.Models.LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="mb-3">
+                    @using (Html.BeginForm("ViewLabResult", "Laboratorian", FormMethod.Get, new { @class = "d-flex" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search" })
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    }
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model)
+                        {
+                            <tr>
+                                <td>@result.Id</td>
+                                <td>@result.PatientId</td>
+                                <td>@result.TestName</td>
+                                <td>
+                                    <a href="@Url.Content("~/" + result.ResultFilePath)" target="_blank">View Result</a>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="EditLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-primary">Edit</a>
+                                        <a asp-action="DeleteLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+
+@* <script>
+    $(document).ready(function () {
+        $("#b1").click(function () {
+            $.get('/Laboratorian/Load', function (result) {
+                $('#myplaceholder').html(result).fadeIn(slow);
+            })
+        })
+    })
+</script> *@
+
+@* @model List<Medi_Connect.Models.LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="text-center mb-3">
+                    @using (Html.BeginForm("ViewLabResult", "Laboratorian", FormMethod.Get, new { @class = "d-inline-flex" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search" })
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    }
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model)
+                        {
+                            <tr>
+                                <td>@result.Id</td>
+                                <td>@result.PatientId</td>
+                                <td>@result.TestName</td>
+                                <td>
+                                    <a href="@Url.Content("~/" + result.ResultFilePath)" target="_blank">View Result</a>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="EditLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-primary">Edit</a>
+                                        <a asp-action="DeleteLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+
+
+
+@* @model List<LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="text-center mb-3">
+                    @using (Html.BeginForm("ViewLabResult", "Laboratorian", FormMethod.Get, new { @class = "d-inline-flex" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search by Test Name" })
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    }
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model)
+                        {
+                            <tr>
+                                <td>@result.Id</td>
+                                <td>@result.PatientId</td>
+                                <td>@result.TestName</td>
+                                <td>
+                                    <a href="@Url.Content("~/" + result.ResultFilePath)">View Result</a>
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a asp-action="EditLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-primary me-2">Edit</a>
+                                        <a asp-action="DeleteLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+
+
+
+@* @model List<LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="input-group mb-3">
+
+
+                   <input type="text" class="form-control" placeholder="Search by Patient ID or Test Name" aria-label="Search" aria-describedby="button-addon2" id="searchQuery">
+                    <a asp-action="ViewLabResult" asp-controller="Laboratorian" asp-for="search" name="search" class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="performSearch()">Search</a> 
+
+                    @using (Html.BeginForm("ViewLabResult", "Laboratorian", FormMethod.Get, new { @class = "d-flex" }))
+                    {
+                        <div class="input-group">
+                            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Search by Test Name" })
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    }
+                </div>
+                <table class="table">
+                    <thead> 
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model)
+                        {
+                            <tr>
+                                <td>@result.Id</td>
+                                <td>@result.PatientId</td>
+                                <td>@result.TestName</td>
+                                <td>
+                        
+                                        <a href="@Url.Content("~/" + result.ResultFilePath)" >View Result</a>
+
+                   
+
+                               
+                        
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a asp-action="EditLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-primary me-2">Edit</a>
+                                        <a asp-action="DeleteLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+
+
+@* @model List<LabResult>
+
+@{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search by Patient ID or Test Name" aria-label="Search" aria-describedby="basic-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model)
+                        {
+                            <tr>
+                                <td>@result.Id</td>
+                                <td>@result.PatientId</td>
+                                <td>@result.TestName</td>
+                                <td><a href="@Url.Action("ViewLabResult", "Laboratorian", new { id = result.Id})" target="_blank">View Result</a></td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a asp-action="EditLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-primary me-2">Edit</a>
+                                        <a asp-action="DeleteLabResult" asp-route-id="@result.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+
+@* @{
+    Layout = "_LaboratorianLayout";
+    ViewBag.Title = "Laboratorian Dashboard - Lab Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h3 class="text-center mb-4">Lab Test Results</h3>
+            <div class="table-responsive">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search by Patient ID or Test Name" aria-label="Search" aria-describedby="basic-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Patient ID</th>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>T001</td>
+                            <td>PatID_01</td>
+                            <td>Blood Test</td>
+                            <td><a href="path_to_result_file" target="_blank">View Result</a></td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ *@

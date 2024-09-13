@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_DoctorLayout";
+    ViewBag.Title = "Doctor Dashboard - Lab";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h3 class="text-center mb-4">View Lab Test Results</h3>
+                <form action="#" method="post" class="lab-tests-form">
+                    <div class="mb-3">
+                        <label for="patient-id" class="form-label">Enter Patient ID:</label>
+                        <input type="text" class="form-control" id="patient-id" name="patient-id" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+
+                    <br>
+                    <br>
+                    <a href="/Doctor/ViewLabTest" class="btn btn-secondary">Go to Lab Test Results List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
